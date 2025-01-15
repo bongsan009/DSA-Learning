@@ -1,0 +1,1 @@
+Creating a well-organized folder struture is essential for effectively learning and practicing DSA.
