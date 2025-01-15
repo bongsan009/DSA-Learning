@@ -58,12 +58,38 @@ const twoSumUsingSortingApproach = (nums, target) => {
 // + Space : O(n)
 
 
+// => 3-Hash Map (Two Pass = use 2 loops separately) Approach ::
+const twoSumUsingHashMap2PassApproach = (nums, target) => {
+    const indices = {}; // val -> index;
+
+    for(let i = 0; i < nums.length; i++)
+    {
+        indices[nums[i]] = i;
+    }
+
+    for(let i = 0; i < nums.length; i++)
+    {
+        let diff = target - nums[i];
+
+        if(indices[diff] != undefined && indices[diff] != i)
+        {
+            return [i, indices[diff]];
+        }
+    }
+
+    return [-1, -1];
+}
+// Time and Space Complexity
+//  + Time : O(n)
+//  + Space : O(n)
+
+
 
 
 
 // Example usage :
 const nums = [2, 7, 11, 15], target = 9;
 
-let result = twoSumUsingSortingApproach(nums, target);
+let result = twoSumUsingHashMap2PassApproach(nums, target);
 
 console.log("Result = ", result);
